@@ -1,0 +1,212 @@
+/* ===== Couleurs et réglages de base ===== */
+:root {
+  --fond: #fbf7ef;          /* crème très clair */
+  --carte: #ffffff;
+  --texte: #2b2622;
+  --texte-doux: #6b625a;
+  --tournesol: #e0a526;     /* jaune tournesol, pour les décorations */
+  --moutarde: #8a6100;      /* plus foncé, lisible pour les liens et boutons */
+  --bordure: #ece4d6;
+  --rayon: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--fond);
+  color: var(--texte);
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+h1, h2, h3 {
+  font-family: "Fraunces", Georgia, serif;
+  line-height: 1.2;
+}
+
+a {
+  color: var(--moutarde);
+}
+
+/* ===== En-tête ===== */
+.hero {
+  padding: 96px 0 72px;
+  border-bottom: 1px solid var(--bordure);
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--moutarde);
+}
+
+.hero h1 {
+  margin: 8px 0 12px;
+  font-size: clamp(2.4rem, 7vw, 4rem);
+}
+
+.tagline {
+  margin: 0 0 32px;
+  font-size: 1.25rem;
+  color: var(--texte-doux);
+}
+
+.hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* ===== Boutons ===== */
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 999px;
+  background: var(--moutarde);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border: 2px solid var(--moutarde);
+  transition: transform 0.15s, background 0.15s;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button-ghost {
+  background: transparent;
+  color: var(--moutarde);
+}
+
+/* ===== Sections ===== */
+section {
+  padding: 64px 0;
+}
+
+section h2 {
+  font-size: 2rem;
+  margin: 0 0 24px;
+}
+
+/* petit trait jaune sous les titres de section */
+section h2::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 4px;
+  margin-top: 10px;
+  border-radius: 2px;
+  background: var(--tournesol);
+}
+
+#about p {
+  max-width: 680px;
+}
+
+.highlight {
+  padding-left: 16px;
+  border-left: 4px solid var(--tournesol);
+  font-style: italic;
+  color: var(--texte-doux);
+}
+
+/* ===== Cartes de projets ===== */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background: var(--carte);
+  border: 1px solid var(--bordure);
+  border-radius: var(--rayon);
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(43, 38, 34, 0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.card h3 {
+  margin: 0 0 12px;
+  font-size: 1.5rem;
+}
+
+.card p {
+  margin: 0 0 14px;
+  font-size: 0.97rem;
+}
+
+/* ===== Étiquettes de technologies ===== */
+.tags {
+  list-style: none;
+  padding: 0;
+  margin: 4px 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tags li {
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: #fdf1d6;
+  color: var(--moutarde);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.card-links {
+  margin-top: auto;   /* pousse les boutons en bas de la carte */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.private-note {
+  margin-top: auto !important;
+  font-size: 0.85rem !important;
+  color: var(--texte-doux);
+  font-style: italic;
+}
+
+/* ===== Pied de page ===== */
+footer {
+  padding: 32px 0;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--texte-doux);
+  border-top: 1px solid var(--bordure);
+}
+
+/* ===== Téléphone ===== */
+@media (max-width: 600px) {
+  .hero {
+    padding: 64px 0 48px;
+  }
+  section {
+    padding: 48px 0;
+  }
+}
