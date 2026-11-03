@@ -50,6 +50,22 @@
       <div class="projects-grid">
 
         <article class="card">
+          <div class="screens">
+            <figure>
+              <video src="images/manga-tracker/scan.mp4" poster="images/manga-tracker/scan-poster.jpg"
+                autoplay muted loop playsinline preload="metadata"
+                aria-label="Scan du code-barres d'un tome : l'ISBN est reconnu, le titre est trouvé et le formulaire d'ajout se remplit"></video>
+              <figcaption>Scan d'un code-barres</figcaption>
+            </figure>
+            <figure>
+              <img src="images/manga-tracker/lecture.jpg" alt="La vue Lecture de Manga Tracker : tomes lus et non lus de chaque série" loading="lazy">
+              <figcaption>Les tomes lus et à lire</figcaption>
+            </figure>
+            <figure>
+              <img src="images/manga-tracker/manquants.jpg" alt="La vue Manquants de Manga Tracker : les tomes à acheter pour chaque série" loading="lazy">
+              <figcaption>Les tomes manquants</figcaption>
+            </figure>
+          </div>
           <div class="card-body">
             <h3>Manga Tracker</h3>
             <p>
@@ -58,15 +74,31 @@
               ou non. J'ai donc créé la mienne : inventaire tome par tome, suivi lu / non lu,
               et liste des tomes manquants pour mes prochains achats.
             </p>
+            <p>
+              <strong>Le code-barres qui ne trouvait rien.</strong> Ma première version
+              n'interrogeait que Google Books, qui ne référence pas les éditions françaises de
+              beaucoup de mangas : de nombreux tomes scannés restaient introuvables. J'ai ajouté le
+              catalogue de la Bibliothèque nationale de France, qui recense les livres publiés en
+              France. Les sources sont interrogées l'une après l'autre (Google Books, puis la BnF,
+              puis Open Library), et seulement si la précédente n'a rien trouvé, pour transmettre
+              l'ISBN au moins de services possible. Comme la BnF ne fournit pas d'images, la
+              couverture est cherchée à part, par ISBN puis par nom de série, en écartant les images
+              vides d'un pixel que certains services renvoient quand ils n'ont rien. Certains tomes
+              ne sont encore référencés nulle part : on peut alors créer la série à la main en lui
+              donnant un nom.
+            </p>
             <p><strong>Fonctionnalités :</strong> ajout de tomes par scan du code-barres
-              (ISBN) avec recherche automatique, ou création manuelle si la série
-              est introuvable, marquage « lu jusqu'au tome N », liste d'achats,
-              connexion par email, synchronisation entre ordinateur et téléphone.</p>
+              (ISBN), avec recherche dans trois catalogues, ou création manuelle si la série
+              est introuvable, couvertures trouvées automatiquement, marquage « lu jusqu'au
+              tome N », liste des tomes manquants pour les prochains achats, connexion par email,
+              synchronisation entre ordinateur et téléphone, sauvegarde dans un fichier,
+              installation sur l'écran d'accueil avec ouverture hors connexion.</p>
             <ul class="tags">
               <li>HTML</li>
               <li>CSS</li>
               <li>JavaScript</li>
               <li>Supabase</li>
+              <li>PWA</li>
               <li>Git</li>
               <li>GitHub Pages</li>
             </ul>
