@@ -159,6 +159,42 @@ section h2::after {
   font-size: 0.97rem;
 }
 
+/* ===== Captures d'écran des projets ===== */
+/* rangée de captures de téléphone, qui défile sur petit écran */
+.screens {
+  display: flex;
+  gap: 12px;
+  padding: 24px 24px 0;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+
+.screens figure {
+  margin: 0;
+  flex: 0 0 140px;
+  scroll-snap-align: start;
+}
+
+.screens img,
+.screens video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 9 / 19.5;   /* format d'un écran de téléphone */
+  object-fit: cover;
+  object-position: top;
+  border: 1px solid var(--bordure);
+  border-radius: 12px;
+  background: var(--fond);
+}
+
+.screens figcaption {
+  margin-top: 6px;
+  font-size: 0.75rem;
+  line-height: 1.3;
+  text-align: center;
+  color: var(--texte-doux);
+}
+
 /* ===== Étiquettes de technologies ===== */
 .tags {
   list-style: none;

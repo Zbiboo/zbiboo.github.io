@@ -78,6 +78,22 @@
         </article>
 
         <article class="card">
+          <div class="screens">
+            <figure>
+              <img src="images/biboubook/hors-ligne.jpg" alt="Biboubook en mode avion : l'album photo s'affiche quand même, depuis le cache" loading="lazy">
+              <figcaption>Ouverte en mode avion</figcaption>
+            </figure>
+            <figure>
+              <img src="images/biboubook/notes-vocales.jpg" alt="L'onglet des notes vocales de Biboubook" loading="lazy">
+              <figcaption>L'onglet des notes vocales</figcaption>
+            </figure>
+            <figure>
+              <video src="images/biboubook/onglets.mp4" poster="images/biboubook/onglets-poster.jpg"
+                autoplay muted loop playsinline preload="metadata"
+                aria-label="La barre d'onglets de Biboubook glisse du doigt et fait apparaître l'onglet Private, caché au bout"></video>
+              <figcaption>La barre d'onglets qui défile</figcaption>
+            </figure>
+          </div>
           <div class="card-body">
             <h3>Biboubook</h3>
             <p>
@@ -90,16 +106,39 @@
               Ma fonctionnalité préférée : chaque jour, un souvenir est tiré au hasard
               dans un album photo préparé à l'avance.
             </p>
+            <p>
+              <strong>Quand le réseau lâche.</strong> Partie au Laos, ma copine voyait souvent
+              « Safari ne peut pas ouvrir la page car le serveur est introuvable » : avec une 4G
+              instable, son téléphone n'arrivait même pas à joindre le serveur. J'ai ajouté un
+              service worker qui garde l'interface en cache. La page est demandée au réseau avec
+              4 secondes de délai maximum, sinon elle est servie depuis le cache. Les dernières
+              notes et photos sont aussi enregistrées sur le téléphone. Comme les liens des photos
+              expirent au bout d'une heure, je les mets en cache par chemin de fichier plutôt que
+              par lien. En vérifiant le fonctionnement de la connexion Supabase, j'ai repéré un
+              second piège : sans réseau, une session expirée ne peut pas être renouvelée, et
+              l'appli renvoyait vers l'écran de connexion. Elle affiche désormais les données en
+              cache jusqu'au retour du réseau.
+            </p>
+            <p>
+              <strong>La notification qui n'arrivait jamais.</strong> Toutes les notifications
+              fonctionnaient, sauf celles des notes vocales. Le téléphone et le service worker
+              n'étaient donc pas en cause : le problème venait de l'envoi. En listant les
+              déclencheurs de la base de données, j'ai trouvé que l'URL du webhook des notes
+              vocales contenait encore le texte d'exemple « OUR_PROJECT_REF ». Chaque nouvelle
+              note vocale appelait donc une adresse qui n'existait pas.
+            </p>
             <p><strong>Fonctionnalités :</strong> compte à rebours avant les retrouvailles,
               petits mots, album photo avec commentaires, dessin au doigt,
-              notes vocales, météo et fuseaux horaires partagés,
-              notifications push, installation sur l'écran d'accueil.</p>
+              notes vocales dans leur propre onglet, météo et fuseaux horaires partagés,
+              notifications push, mode hors ligne, barre d'onglets qui défile du doigt
+              (l'onglet privé est caché au bout), installation sur l'écran d'accueil.</p>
             <ul class="tags">
               <li>HTML</li>
               <li>CSS</li>
               <li>JavaScript</li>
               <li>Supabase</li>
               <li>PWA</li>
+              <li>Service Worker</li>
               <li>Canvas</li>
               <li>Netlify</li>
             </ul>
