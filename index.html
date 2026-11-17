@@ -50,6 +50,55 @@
       <div class="projects-grid">
 
         <article class="card">
+          <div class="card-body">
+            <h3>TwoBook</h3>
+            <p>
+              Biboubook était faite pour nous deux. Avec TwoBook, j'en fais une vraie appli
+              iPhone et Android, ouverte à tous les couples. Chacun crée un compte et invite
+              son ou sa partenaire avec un code, et chaque couple a son espace privé. J'ai
+              appris React Native en la construisant, en partant de zéro : le premier écran
+              était le compte à rebours de Biboubook.
+            </p>
+            <p>
+              <strong>Un thème dessiné par l'IA, sans risque pour l'appli.</strong> Le couple
+              décrit l'ambiance qu'il veut, et Claude génère les couleurs (de jour et de nuit),
+              les polices, le motif de fond et les décorations. La clé de l'IA permet de
+              dépenser de l'argent : elle ne doit pas se trouver dans l'appli installée, où
+              n'importe qui peut la lire. L'appel passe donc par une fonction serveur chez
+              Supabase. Claude doit répondre dans un format JSON imposé, puis l'appli vérifie
+              chaque thème. Elle refuse un texte trop peu contrasté avec son fond (seuil WCAG
+              de 4,5), pour que l'IA ne puisse pas rendre l'appli illisible. Chaque couple a
+              droit à 10 essais par jour, comptés dans la base de données, ce qui limite la facture.
+            </p>
+            <p>
+              <strong>La photo secrète qu'on pouvait capturer.</strong> L'onglet Secret affiche
+              une photo pendant 60 secondes, puis la supprime, et les captures d'écran sont
+              bloquées. Sur Android, pourtant, la capture fonctionnait. La photo s'ouvrait dans
+              une fenêtre superposée, qu'Android traite comme une fenêtre à part : la protection
+              ne s'y appliquait pas. Afficher la photo dans un véritable écran de l'appli a
+              réglé le problème.
+            </p>
+            <p><strong>Fonctionnalités :</strong> inscription par e-mail ou avec Google,
+              invitation du partenaire par code, plusieurs comptes à rebours, petits mots et
+              notes vocales, album photo avec commentaires, souvenir du jour, dessin au doigt,
+              « Je pense à toi », heure, météo et distance pour les couples à distance, photo
+              secrète derrière un puzzle, fil « Quoi de neuf » en direct, notifications, mode
+              hors ligne, mode nuit, français et anglais, suppression de compte.</p>
+            <ul class="tags">
+              <li>React Native</li>
+              <li>Expo</li>
+              <li>JavaScript</li>
+              <li>Supabase</li>
+              <li>PostgreSQL</li>
+              <li>API Claude</li>
+              <li>EAS</li>
+              <li>Git</li>
+            </ul>
+            <p class="private-note">En cours de développement, publication sur l'App Store et Google Play à venir. Code non public.</p>
+          </div>
+        </article>
+
+        <article class="card">
           <div class="screens">
             <figure>
               <video src="images/manga-tracker/scan.mp4" poster="images/manga-tracker/scan-poster.jpg"
@@ -147,6 +196,9 @@
             <p>
               Ma fonctionnalité préférée : chaque jour, un souvenir est tiré au hasard
               dans un album photo préparé à l'avance.
+            </p>
+            <p>
+              Biboubook a servi de point de départ à TwoBook, sa version mobile pour tous les couples.
             </p>
             <p>
               <strong>Quand le réseau lâche.</strong> Partie au Laos, ma copine voyait souvent
