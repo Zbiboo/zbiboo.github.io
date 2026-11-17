@@ -1,92 +1,63 @@
-# 📚 Les notions du portfolio
+# Notions du portfolio
 
-Chaque notion utilisée sur le site, expliquée simplement, avec l'endroit où la voir.
+Les notions utilisées dans ce site, expliquées simplement, avec l'endroit où les voir.
 
 ## HTML
 
-### La structure d'une page
-`<head>` contient ce qui ne s'affiche pas (titre de l'onglet, description pour
-Google, polices, feuille de style) ; `<body>` contient la page visible.
-→ [index.html](index.html)
-
-### Les balises « qui ont un sens » (sémantiques)
-`<header>`, `<main>`, `<section>`, `<article>`, `<nav>`, `<footer>` : elles disent
-**ce qu'est** un bloc, pas seulement à quoi il ressemble. Ça aide les lecteurs
-d'écran et Google. Chaque projet est un `<article class="card">`.
-→ [index.html](index.html), section `#projects`
-
-### La balise `viewport`
-`<meta name="viewport" content="width=device-width, …">` : sans elle, un
-téléphone affiche la page comme sur un ordinateur, en tout petit.
-
-### Les ancres (`href="#projects"`)
-Un lien vers `#projects` fait défiler jusqu'à l'élément qui a `id="projects"`.
-→ le bouton « Voir mes projets »
-
-### Images et vidéos accessibles
-- `alt` décrit une image à qui ne la voit pas ; `aria-label` fait pareil pour une vidéo.
-- `<figure>` + `<figcaption>` : une image et sa légende, liées ensemble.
-- `loading="lazy"` : l'image n'est téléchargée que quand on s'en approche.
-→ les captures de Manga Tracker et Biboubook
-
-### Une vidéo qui se lance toute seule
-`autoplay muted loop playsinline` : les navigateurs n'acceptent la lecture
-automatique que si la vidéo est **muette** ; `playsinline` évite que l'iPhone
-l'ouvre en plein écran. `poster` = l'image affichée avant le chargement.
+- **Structure d'une page** : `<head>` contient les informations pour le navigateur
+  (titre de l'onglet, description pour Google, polices) et `<body>` ce qui s'affiche.
+  → [index.html](index.html)
+- **Balises qui ont du sens** : `<header>`, `<main>`, `<section>`, `<article>`,
+  `<footer>`. Elles décrivent le rôle de chaque partie, ce qui aide les lecteurs
+  d'écran et Google. Chaque projet est un `<article class="card">`.
+  → [index.html](index.html)
+- **`<meta name="description">`** : la phrase que Google affiche sous le titre du site.
+  → [index.html](index.html)
+- **Ancres** : `href="#projects"` fait défiler la page jusqu'à l'élément qui a
+  `id="projects"`. → le bouton « Voir mes projets »
+- **Images et vidéos** : `alt` (pour une image) et `aria-label` (pour une vidéo) décrivent
+  ce qu'on voit, pour les personnes qui ne le voient pas. `loading="lazy"` ne charge une
+  image que quand on s'en approche. Une vidéo avec `autoplay muted loop playsinline` se lit
+  toute seule, sans son, en boucle, et sans passer en plein écran sur iPhone. `poster` est
+  l'image affichée avant qu'elle démarre.
+  → les cartes Manga Tracker et Biboubook
+- **`<figure>` et `<figcaption>`** : une image avec sa légende. → `.screens`
 
 ## CSS
 
-### Les variables (`--fond`, `--moutarde`…)
-Définies une fois dans `:root`, utilisées partout avec `var(--fond)`. Changer
-une couleur du site = changer une seule ligne.
-→ [style.css](style.css), tout en haut
+- **Variables** (`--fond`, `--moutarde`…) : les couleurs sont écrites une seule fois
+  dans `:root`, puis réutilisées avec `var(--moutarde)`. Changer une couleur partout =
+  changer une ligne. → [style.css](style.css)
+- **Flexbox** (`display: flex`) : aligne des éléments sur une ligne, comme les boutons
+  ou les étiquettes. `flex-wrap: wrap` les fait passer à la ligne s'il manque de place.
+  → `.hero-links`, `.tags`
+- **Grid** (`display: grid`) : la grille des cartes. `repeat(auto-fit, minmax(300px, 1fr))`
+  met autant de colonnes que possible, de 300 px minimum : deux sur ordinateur,
+  une sur téléphone, sans rien écrire de plus. → `.projects-grid`
+- **`margin-top: auto`** dans une carte en flex colonne : pousse l'élément tout en bas,
+  pour que les boutons des cartes soient alignés. → `.card-links`, `.private-note`
+- **Media query** (`@media (max-width: 600px)`) : des règles qui ne s'appliquent que
+  sur les petits écrans. → fin de [style.css](style.css)
+- **Défilement horizontal aimanté** : `overflow-x: auto` + `scroll-snap-type` font
+  défiler les captures du doigt, en s'arrêtant pile sur chacune. → `.screens`
+- **Pseudo-élément `::after`** : ajoute une décoration sans toucher au HTML, ici le petit
+  trait jaune sous les titres. → `section h2::after`
+- **Badge arrondi** : `display: inline-block` + `border-radius: 999px` donnent une
+  « pilule » juste à la taille du texte. → `.dispo` (alternance), `.tags li`
 
-### `box-sizing: border-box`
-La largeur d'un bloc inclut ses marges intérieures et sa bordure : les tailles
-deviennent prévisibles.
+## Hébergement
 
-### Centrer le contenu : `.container`
-`max-width` + `margin: 0 auto` : le texte ne s'étale pas sur tout un grand écran.
+- **GitHub Pages** : GitHub publie gratuitement le contenu d'un dépôt nommé
+  `<pseudo>.github.io` à l'adresse https://zbiboo.github.io. Chaque `git push` sur `main`
+  met le site à jour en une minute environ.
+- **Google Fonts** : les polices Fraunces (titres) et Inter (texte) sont chargées depuis
+  Google. `preconnect` prépare la connexion plus tôt pour gagner du temps.
+  → `<head>` de [index.html](index.html)
 
-### La grille des projets (CSS Grid)
-`repeat(auto-fit, minmax(300px, 1fr))` : autant de colonnes qu'il en tient, chacune
-d'au moins 300 px. Une seule sur téléphone, plusieurs sur ordinateur, sans `@media`.
-→ `.projects-grid`
+## Pièges rencontrés
 
-### Flexbox
-Aligner des éléments en ligne ou en colonne. Dans une carte, `flex: 1` et
-`margin-top: auto` poussent la petite note grise tout en bas.
-→ `.card`, `.card-body`, `.private-note`
-
-### La rangée de captures qui défile
-`overflow-x: auto` permet de faire défiler horizontalement ; `scroll-snap` arrête
-le défilement pile sur une capture.
-→ `.screens`
-
-### Le format d'un écran de téléphone
-`aspect-ratio: 9 / 19.5` garde la forme d'un écran ; `object-fit: cover` remplit
-le cadre sans déformer l'image.
-
-### S'adapter aux petits écrans (`@media`)
-`@media (max-width: 600px) { … }` : des règles qui ne s'appliquent que sur un
-écran étroit.
-
-### Les polices Google Fonts
-`preconnect` ouvre la connexion au serveur des polices en avance, pour qu'elles
-arrivent plus vite. Fraunces pour les titres, Inter pour le texte.
-
-## Publication
-
-### GitHub Pages
-Un dépôt nommé `<pseudo>.github.io` est publié automatiquement à cette adresse.
-**Chaque push sur `main` met le site en ligne** : on travaille donc sur une
-branche, on vérifie en local, puis on fusionne.
-
-### Voir le site en local
-`python3 -m http.server` dans le dossier, puis ouvrir http://localhost:8000.
-Ouvrir directement `index.html` marche aussi, mais un vrai petit serveur se
-comporte comme le site en ligne.
-
----
-
-*Dernière mise à jour : 17 novembre 2026 (ajout de TwoBook).*
+- **Rester cohérent avec le CV** : le portfolio disait « je suis en formation » alors que
+  la formation commence en janvier 2027, avec l'alternance. Un recruteur lit souvent les
+  deux : il vaut mieux les relire ensemble à chaque mise à jour.
+- **Projets privés** : pas de lien vers le code de Biboubook ni de TwoBook (dépôts privés).
+  À la place, une note en bas de carte (`.private-note`) et, si possible, des captures.

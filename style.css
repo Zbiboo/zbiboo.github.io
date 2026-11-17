@@ -64,6 +64,18 @@ a {
   color: var(--texte-doux);
 }
 
+/* disponibilité pour l'alternance, sous le sous-titre */
+.dispo {
+  display: inline-block;
+  margin: -16px 0 32px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: #fdf1d6;
+  color: var(--moutarde);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
 .hero-links {
   display: flex;
   flex-wrap: wrap;
