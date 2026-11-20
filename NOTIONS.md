@@ -43,7 +43,7 @@ Les notions utilisées dans ce site, expliquées simplement, avec l'endroit où 
 - **Pseudo-élément `::after`** : ajoute une décoration sans toucher au HTML, ici le petit
   trait jaune sous les titres. → `section h2::after`
 - **Badge arrondi** : `display: inline-block` + `border-radius: 999px` donnent une
-  « pilule » juste à la taille du texte. → `.dispo` (alternance), `.tags li`
+  « pilule » juste à la taille du texte. → `.tags li`
 
 ## Hébergement
 
@@ -57,7 +57,7 @@ Les notions utilisées dans ce site, expliquées simplement, avec l'endroit où 
 ## Pièges rencontrés
 
 - **Rester cohérent avec le CV** : le portfolio disait « je suis en formation » alors que
-  la formation commence en janvier 2027, avec l'alternance. Un recruteur lit souvent les
+  la formation n'a pas encore commencé. Un recruteur lit souvent les
   deux : il vaut mieux les relire ensemble à chaque mise à jour.
 - **Projets privés** : pas de lien vers le code de Biboubook ni de TwoBook (dépôts privés).
   À la place, une note en bas de carte (`.private-note`) et, si possible, des captures.
